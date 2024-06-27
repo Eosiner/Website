@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin</title>
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid #aaa;
+            background-color: #ddd;
+            position: relative;
+        }
+        .profile-photo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #aaa;
+            cursor: pointer;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .dropdown a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+        }
+        .dropdown a:last-child {
+            border-bottom: none;
+        }
+        .dropdown a:hover {
+            background-color: #f3f3f3;
+        }
+        .container {
+            display: flex;
+            flex-grow: 1;
+        }
+        .sidebar {
+            background-color: #f3f3f3;
+            padding: 20px;
+            width: 200px;
+        }
+        .sidebar .menu-item {
+            margin: 10px 0;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .sidebar .menu-item.box {
+            background-color: #c3c3c3;
+            border-radius: 5px;
+        }
+        .sidebar .menu-item.active {
+            background-color: #444;
+            color: #fff;
+        }
+        .sidebar > div:hover {
+            background-color: #707070;
+            color: white;
+        }
+        .content {
+            flex-grow: 1;
+            background-color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .dashboard {
+            background-color: #d3d3d3;
+            width: 80%;
+            height: 80%;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .dashboard::before {
+            content: "Dashboard";
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+        }
+        .circle {
+            width: 200px;
+            height: 200px;
+            background-color: #a0a0a0;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="profile-photo" onclick="toggleDropdown()"></div>
+        <div class="dropdown" id="dropdownMenu">
+            <a href="#">Admin</a>
+            <a href="logout.html">Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <div class="menu-item" onclick="location.href='DasboardAdmint.html'">Dashboard</div>
+            <div class="menu-item box">Manajemen Pengguna</div>
+            <div class="menu-item" onclick="location.href='MPGuru.html'">Guru</div>
+            <div class="menu-item" onclick="location.href='MPSiswa.html'">Siswa</div>
+            <div class="menu-item box">Manajemen Kurikulum</div>
+            <div class="menu-item" onclick="location.href='MKkurikulum.html'">Kurikulum</div>
+        </div>
+        <div class="content">
+            <div class="dashboard">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById('dropdownMenu');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.profile-photo')) {
+                var dropdowns = document.getElementsByClassName('dropdown');
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

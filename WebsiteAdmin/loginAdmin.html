@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #4b4a4a; 
+        }
+
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .left-panel {
+            flex: 1;
+            background-color: #e0e0e0;
+        }
+
+        .right-panel {
+            flex: 1;
+            background-color: #f0f0f0;
+            padding: 80px;
+        }
+
+        .right-panel h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        input {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #d3d3d3;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #a0a0a0;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel"></div>
+        <div class="right-panel">
+            <h1>Masuk Sebagai Admin</h1>
+            <form>
+                <label for="Username">Username</label>
+                <input type="text" id="Username" name="Username">
+                <label for="password">Kata sandi</label>
+                <input type="password" id="password" name="password">
+                <button type="button" onclick="location.href='DasboardAdmint.html'">Log In</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

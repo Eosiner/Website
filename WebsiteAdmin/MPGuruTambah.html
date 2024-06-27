@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manajemen Pengguna/Siswa/Tambah</title>
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid #aaa;
+            background-color: #ddd;
+        }
+        .profile-photo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #aaa;
+        }
+        .container {
+            display: flex;
+            flex-grow: 1;
+        }
+        .sidebar {
+            background-color: #f3f3f3;
+            padding: 20px;
+            width: 200px;
+        }
+        .sidebar .menu-item {
+            margin: 10px 0;
+            padding: 10px;
+        }
+        .sidebar .menu-item.box {
+            background-color: #c3c3c3;
+            border-radius: 5px;
+        }
+        .sidebar .menu-item.active {
+            background-color: #444;
+            color: #fff;
+        }
+        .sidebar > div:hover {
+            background-color: #707070;
+            color: white;
+        }
+        .content {
+            flex-grow: 1;
+            background-color: #fff;
+            padding: 20px;
+        }
+        .content h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .form-container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="password"],
+        .form-group input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group .profile-photo-container {
+            display: flex;
+            align-items: center;
+        }
+        .form-group .profile-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #aaa;
+            margin-right: 15px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #bbb;
+            color: black;
+        }
+        .dropdown {
+          display: none;
+          position: absolute;
+          top: 60px;
+          right: 20px;
+          background-color: #fff;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          z-index: 1000;
+      }
+      .dropdown a {
+          display: block;
+          padding: 10px 20px;
+          text-decoration: none;
+          color: #333;
+          border-bottom: 1px solid #ddd;
+      }
+      .dropdown a:last-child {
+          border-bottom: none;
+      }
+      .dropdown a:hover {
+          background-color: #f3f3f3;
+      }
+    </style>
+</head>
+<body>
+<div class="header">
+  <div class="profile-photo" onclick="toggleDropdown()"></div>
+        <div class="dropdown" id="dropdownMenu">
+            <a href="#">Admin</a>
+            <a href="logout.html">Logout</a>
+        </div>
+</div>
+<div class="container">
+  <div class="sidebar">
+    <div class="menu-item" onclick="location.href='DasboardAdmint.html'">Dasboard</div>
+    <div class="menu-item box">Manajemen Pengguna</div>
+    <div class="menu-item" onclick="location.href='MPGuru.html'">Guru</div>
+    <div class="menu-item" onclick="location.href='MPSiswa.html'">Siswa</div>
+    <div class="menu-item box">Manajemen Kurikulum</div>
+    <div class="menu-item"onclick="location.href='MKkurikulum.html'">Kurikulum</div>
+    
+  </div>
+  <div class="content">
+    <h1>Manajemen Pengguna/Guru/Tambah</h1>
+    <div class="form-container">
+      <div class="form-group profile-photo-container">
+        <div class="profile-photo"></div>
+        <span class="photo-label">Tambah Foto Profil</span>
+      </div>
+      <div class="form-group">
+        <label for="nis">NIP</label>
+        <input type="text" id="nip" name="nip">
+      </div>
+      <div class="form-group">
+        <label for="nama">Nama</label>
+        <input type="text" id="nama" name="nama">
+      </div>
+      <div class="form-group">
+        <label for="Mata Pelajaran">Mata Pelajaran</label>
+        <input type="text" id="Mata Pelajaran" name="Mata Pelajaran">
+      </div>
+      <div class="form-group">
+        <label for="jenis_kelamin">Jenis Kelamin</label>
+        <input type="text" id="jenis_kelamin" name="jenis_kelamin">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password">
+      </div>
+      <div class="buttons">
+        <button type="button" onclick="window.history.back();">Kembali</button>
+        <button type="submit">Simpan</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function toggleDropdown() {
+      var dropdown = document.getElementById('dropdownMenu');
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+  }
+
+  window.onclick = function(event) {
+      if (!event.target.matches('.profile-photo')) {
+          var dropdowns = document.getElementsByClassName('dropdown');
+          for (var i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.style.display === 'block') {
+                  openDropdown.style.display = 'none';
+              }
+          }
+      }
+  }
+</script>
+</body>
+</html>

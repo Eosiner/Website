@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin</title>
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid #aaa;
+            background-color: #ddd;
+        }
+        .profile-photo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #aaa;
+            cursor: pointer;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .dropdown a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+        }
+        .dropdown a:last-child {
+            border-bottom: none;
+        }
+        .dropdown a:hover {
+            background-color: #f3f3f3;
+        }
+        .container {
+            display: flex;
+            flex-grow: 1
+        }
+          .section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          }
+      
+          .section-header {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+          }
+      
+          .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+          }
+      
+          .list-item-left {
+            display: flex;
+            align-items: center;
+          }
+      
+          .list-item-right {
+            display: flex;
+            align-items: center;
+          }
+      
+          .button {
+            background-color: #777777;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+          }
+      
+          .input-field {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+          }
+      
+          .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+          }
+       
+        .sidebar {
+            background-color: #f3f3f3;
+            padding: 20px;
+            width: 200px;
+        }
+        .sidebar .menu-item {
+            margin: 10px 0;
+            padding: 10px;
+        }
+        .sidebar .menu-item.box {
+            background-color: #c3c3c3;
+            border-radius: 5px;
+        }
+        .sidebar > div:hover {
+            background-color: #707070;
+            color: white;
+        }
+        .content {
+            flex-grow: 1;
+            background-color: #fff;
+            padding: 20px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #bbb;
+            color: black;
+        }
+        .dashboard {
+            background-color: #d3d3d3;
+            width: 80%;
+            height: 80%;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .dashboard::before {
+            content: "Dashboard";
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+        }
+        .circle {
+            width: 200px;
+            height: 200px;
+            background-color: #a0a0a0;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="profile-photo" onclick="toggleDropdown()"></div>
+        <div class="dropdown" id="dropdownMenu">
+            <a href="#">Admin</a>
+            <a href="logout.html">Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <div class="menu-item" onclick="location.href='DasboardAdmint.html'">Dashboard</div>
+            <div class="menu-item box">Manajemen Pengguna</div>
+            <div class="menu-item" onclick="location.href='MPGuru.html'">Guru</div>
+            <div class="menu-item" onclick="location.href='MPSiswa.html'">Siswa</div>
+            <div class="menu-item box">Manajemen Kurikulum</div>
+            <div class="menu-item" onclick="location.href='MKkurikulum.html'">Kurikulum</div>
+        </div>
+        <div class="content">
+            <div class="content-header">
+                <h1>Manajemen Kurikulum/Kurikulum</h1>
+            <div>
+                <div class="form-container">
+                <div class="section">
+                  <div class="section-header">
+                    Tahun Ajaran
+                  </div>
+                  <input type="text" class="input-field" placeholder="Masukkan tahun ajaran">
+                </div>
+            
+                <div class="section">
+                  <div class="section-header">
+                    Kelas VII
+                  </div>
+                  <div class="list-item">
+                    <div class="list-item-left">MTK</div>
+                    <div class="list-item-right">
+                      <button class="button">Hapus</button>
+                    </div>
+                  </div>
+                  <div class="list-item">
+                    <div class="list-item-left">IPA</div>
+                    <div class="list-item-right">
+                      <button class="button">Hapus</button>
+                    </div>
+                  </div>
+                  <div class="list-item">
+                    <div class="list-item-left">IPS</div>
+                    <div class="list-item-right">
+                      <button class="button">Hapus</button>
+                    </div>
+                  </div>
+                  <div class="list-item">
+                    <div class="list-item-left">SBK</div>
+                    <div class="list-item-right">
+                      <button class="button">Hapus</button>
+                    </div>
+                  </div>
+                  <div class="list-item">
+                    <div class="list-item-left">Mata Pelajaran</div>
+                    <div class="list-item-right">
+                      <input type="text" class="input-field" placeholder="Masukkan mata pelajaran">
+                      <button class="button">Tambah</button>
+                    </div>
+                  </div>
+                </div>
+            
+                <div class="section">
+                  <div class="section-header">
+                    Kelas VIII
+                  </div>
+                  <div class="list-item">
+                    <div class="list-item-left">MTK</div>
+                    <div class="list-item-right">
+                      <button class="button">Hapus</button>
+                    </div>
+                  </div>
+                  <div class="list-item">
+                    <div class="list-item-left">IPA</div>
+                    <div class="list-item-right">
+                      <button class="button">Hapus</button>
+                    </div>
+                  </div>
+                  <div class="list-item">
+                    <div class="list-item-left">IPS</div>
+                    <div class="list-item-right">
+                      <button class="button">Hapus</button>
+                    </div>
+                  </div>
+                  <div class="list-item">
+                    <div class="list-item-left">SBK</div>
+                    <div class="list-item-right">
+                      <button class="button">Hapus</button>
+                    </div>
+                  </div>
+                  <div class="list-item">
+                    <div class="list-item-left">Mata Pelajaran</div>
+                    <div class="list-item-right">
+                      <input type="text" class="input-field" placeholder="Masukkan mata pelajaran">
+                      <button class="button">Tambah</button>
+                    </div>
+                  </div>
+                </div>
+            
+                <div class="section">
+                  <div class="section-header">
+                    Kelas IX
+                  </div>
+                  <div class="list-item">
+                    <div class="list-item-left">MTK</div>
+                    <div class="list-item-right">
+                      <button class="button">Hapus</button>
+                    </div>
+                  </div>
+                  <div class="list-item">
+                    <div class="list-item-left">IPA</div>
+                    <div class="list-item-right">
+                      <button class="button">Hapus</button>
+                    </div>
+                  </div>
+                  <div class="list-item">
+                    <div class="list-item-left">IPS</div>
+                    <div class="list-item-right">
+                      <button class="button">Hapus</button>
+                    </div>
+                  </div>
+                  <div class="list-item">
+                    <div class="list-item-left">SBK</div>
+                    <div class="list-item-right">
+                      <button class="button">Hapus</button>
+                    </div>
+                  </div>
+                  <div class="list-item">
+                    <div class="list-item-left">Mata Pelajaran</div>
+                    <div class="list-item-right">
+                      <input type="text" class="input-field" placeholder="Masukkan mata pelajaran">
+                      <button class="button">Tambah</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="buttons">
+                    <button type="button" onclick="window.history.back();">Kembali</button>
+                    <button type="submit">Simpan</button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById('dropdownMenu');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.profile-photo')) {
+                var dropdowns = document.getElementsByClassName('dropdown');
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
